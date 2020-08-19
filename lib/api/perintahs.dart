@@ -1,25 +1,7 @@
 
 part of 'apiurl.dart';
 
-abstract class DataPerintahs {
-  Future<List<Perintahs>> getPerintahs();
-}
 
-class DataperintahsImpl implements DataPerintahs {
-
-  @override
-  Future<List<Perintahs>> getPerintahs() async {
-    var response = await http.get(Apiurl.apiURL);
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      List<Perintahs> perintahs = Perintahs.fromJson(data).perintahs;
-      return perintahs;
-    } else {
-      throw Exception();
-    }
-  }
-
-}
 
 class Perintahs {
   bool success;

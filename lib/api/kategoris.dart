@@ -1,24 +1,6 @@
 part of 'apiurl.dart';
 
-abstract class DataKategori {
-  Future<List<Kategoris>> getKategoris();
-}
 
-class DataKategoriImpl implements DataKategori {
-
-  @override
-  Future<List<Kategoris>> getKategoris() async {
-    var response = await http.get(Apiurl.apiURL);
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      List<Kategoris> kategori = Kategoris.fromJson(data).kategori;
-      return kategori;
-    } else {
-      throw Exception();
-    }
-  }
-
-}
 
 class Kategoris {
   bool success;

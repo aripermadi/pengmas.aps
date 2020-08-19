@@ -1,22 +1,18 @@
 part of 'apiurl.dart';
 
-
-
-
-class Pertanyaans {
+class Materis {
   bool success;
-  List<Data> data;
+  List<Materis> materi;
   String message;
-  List<Pertanyaans> pertanyaan;
 
-  Pertanyaans({this.success, this.data, this.message});
+  Materis({this.success, this.materi, this.message});
 
-  Pertanyaans.fromJson(Map<String, dynamic> json) {
+  Materis.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     if (json['data'] != null) {
-      data = new List<Data>();
+      materi = new List<Materis>();
       json['data'].forEach((v) {
-        data.add(new Data.fromJson(v));
+        materi.add(new Materis.fromJson(v));
       });
     }
     message = json['message'];
@@ -25,40 +21,40 @@ class Pertanyaans {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['success'] = this.success;
-    if (this.data != null) {
-      data['data'] = this.data.map((v) => v.toJson()).toList();
+    if (this.materi != null) {
+      data['data'] = this.materi.map((v) => v.toJson()).toList();
     }
     data['message'] = this.message;
     return data;
   }
 }
 
-class Data {
+class Materi {
   int id;
-  int idLatihan;
-  String pertanyaan;
-  String pilihan1;
-  String pilihan2;
+  String judul;
+  String detailMateri;
+  int kategoriId;
+  String tanggal;
   String createdAt;
   String updatedAt;
   Null deletedAt;
 
-  Data(
+  Materi(
       {this.id,
-      this.idLatihan,
-      this.pertanyaan,
-      this.pilihan1,
-      this.pilihan2,
+      this.judul,
+      this.detailMateri,
+      this.kategoriId,
+      this.tanggal,
       this.createdAt,
       this.updatedAt,
       this.deletedAt});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Materi.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    idLatihan = json['id_latihan'];
-    pertanyaan = json['pertanyaan'];
-    pilihan1 = json['pilihan1'];
-    pilihan2 = json['pilihan2'];
+    judul = json['judul'];
+    detailMateri = json['detail_materi'];
+    kategoriId = json['kategori_id'];
+    tanggal = json['tanggal'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     deletedAt = json['deleted_at'];
@@ -67,10 +63,10 @@ class Data {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['id_latihan'] = this.idLatihan;
-    data['pertanyaan'] = this.pertanyaan;
-    data['pilihan1'] = this.pilihan1;
-    data['pilihan2'] = this.pilihan2;
+    data['judul'] = this.judul;
+    data['detail_materi'] = this.detailMateri;
+    data['kategori_id'] = this.kategoriId;
+    data['tanggal'] = this.tanggal;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['deleted_at'] = this.deletedAt;

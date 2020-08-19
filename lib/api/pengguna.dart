@@ -1,25 +1,7 @@
 
 part of 'apiurl.dart';
 
-abstract class DataPengguna {
-  Future<List<Penggunas>> getPengguna();
-}
 
-class DataPenggunaImpl implements DataPengguna {
-
-  @override
-  Future<List<Penggunas>> getPengguna() async {
-    var response = await http.get(Apiurl.apiURL);
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      List<Penggunas> pengguna = Penggunas.fromJson(data).pengguna;
-      return pengguna;
-    } else {
-      throw Exception();
-    }
-  }
-
-}
 
 
 class Penggunas {

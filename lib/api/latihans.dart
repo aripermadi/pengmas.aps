@@ -9,7 +9,8 @@ class DataLatihanImpl implements DataLatihan {
   
   @override
   Future<List<Latihans>> getLatihans() async {
-    var response = await http.get(Apiurl.apiURL);
+    var params = "latihans/post";
+    var response = await http.get(Apiurl.apiURL+params);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       List<Latihans> latihan = Latihans.fromJson(data).latihan;
