@@ -11,6 +11,7 @@ part 'perintahs.dart';
 part 'latihans.dart';
 part 'materi.dart';
 
+
 class Apiurl {
   static String apiURL = "http://rsiaisyiyahnganjuk.com/infy/public/index.php/api/";
 }
